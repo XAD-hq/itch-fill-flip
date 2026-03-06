@@ -1,0 +1,36 @@
+# Generated data files — run the pipeline to produce these
+*.parquet
+*.parquet.tmp
+
+# ITCH binary data files — too large for git, download from NASDAQ EMI
+*.NASDAQ_ITCH50
+*.NASDAQ_ITCH50.gz
+*.txt.gz
+
+# Private research notes — not for public distribution
+PRIVATE_NOTE_FOR_DAVID.md
+
+# Jupyter checkpoints
+.ipynb_checkpoints/
+
+# Python cache
+__pycache__/
+*.pyc
+*.pyo
+
+# Go build output
+*.exe
+hotpotato
+
+# OS files
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Virtual environments
+.venv/
+venv/
+env/
+
+
+.virtual_documents/

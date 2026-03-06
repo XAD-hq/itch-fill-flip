@@ -1,0 +1,12 @@
+Place your NASDAQ ITCH 5.0 binary file in this folder.
+
+Example filename: 01302020.NASDAQ_ITCH50
+
+Then open main.go and update this line at the top:
+
+    itchFilePath = `data\01302020.NASDAQ_ITCH50`
+
+Change the filename to match whatever file you placed here.
+
+Download ITCH files free from:
+https://emi.nasdaq.com/ITCH/Nasdaq%20ITCH/
