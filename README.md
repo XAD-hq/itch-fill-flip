@@ -180,6 +180,14 @@ Bodek–Shaw (2012), López de Prado.
 - European venue data (Eurex) for ESMA relevance
 - Full FIFO queue position reconstruction
 - Price impact analysis in microseconds following flip
+  
+---
+
+## Project Contributions & Architecture
+This research pipeline was developed collaboratively to investigate the fill-flip mechanism.
+* **Theory & Concept:** David M. (Originator of the fill-flip / hot-potato mechanism hypothesis).
+* **Data Engineering:** Bhavik P. (NASDAQ ITCH 5.0 Go parser logic and binary data handling).
+* **Architecture & Reconstruction:** Pankaj J. (LOB state reconstruction, deep-book feature extraction logic, and Python detection pipeline development).
 
 ---
 
