@@ -7,7 +7,7 @@
 *.NASDAQ_ITCH50.gz
 *.txt.gz
 
-# Private research notes — not for public distribution
+# Private research notes
 PRIVATE_NOTE_FOR_DAVID.md
 
 # Jupyter checkpoints

@@ -23,11 +23,12 @@ For the full methodology, findings, and analysis see:
 
 - **80,910** SPY execution events from 423 million ITCH packets
 - **37.9%** of all SPY fills were odd-lot — confirming odd-lot executions are not unusual
-- **134 fill-flip candidate pairs** detected at 1ms window using fingerprint quantities
-- **Minimum reaction time: 0.6 microseconds**
-- **Median reaction time: 106.3 microseconds**
-- **50x window expansion → only 1.54x more pairs** — strong temporal clustering
-  inconsistent with random coincidence
+- **134 fill-flip candidate pairs** at 1ms window under strict fingerprint criteria (qty ≥ 50, appear ≤ 3× at any price+side level)
+- **400 fill-flip candidate pairs** at 1ms window under lax criteria (qty ≥ 10, not a multiple of 10)
+- **Minimum reaction time: 0.6 microseconds** across both criteria
+- **Median reaction time: ~106 microseconds** — consistent across both criteria
+- **50x window expansion → 1.54x more pairs (strict) / 1.70x more pairs (lax)** — strong temporal clustering inconsistent with random coincidence
+- Consistency of hit rates and timing across both criteria confirms the finding is robust
 
 ---
 
@@ -46,11 +47,10 @@ NASDAQ ITCH 5.0 Binary (.NASDAQ_ITCH50)
     executions.parquet
             │
             ▼
-    Python Detection (detect_hot_potato.py)
-    └── Fingerprint-based fill-flip detection
-            │
-            ▼
     Research Notebook (hot_potato_research.ipynb)
+    ├── Fingerprint-based fill-flip detection
+    ├── Strict and lax criteria comparison
+    └── Full analysis, plots, and interpretation
 ```
 
 ---
@@ -102,17 +102,12 @@ Output: `executions.parquet` — approximately 1 hour for a full trading day fil
 pip install polars pyarrow matplotlib numpy jupyter
 ```
 
-### 5. Run detection
-```bash
-python detect_hot_potato.py                        # default 10ms window
-python detect_hot_potato.py --window 1000000       # 1ms
-python detect_hot_potato.py --window 50000000      # 50ms
-```
-
-### 6. Open research notebook
+### 5. Open research notebook
 ```bash
 jupyter notebook hot_potato_research.ipynb
 ```
+
+Run all cells top to bottom. Figures are saved to the `images/` folder automatically.
 
 ---
 
@@ -155,11 +150,6 @@ are subtracted — giving correct post-fill depth for that specific execution.
 To add a new output column: add to the Parquet schema string at the top,
 compute in `writeExecution()`, add to the `AddData` map.
 
-**`detect_hot_potato.py`**
-Reads `executions.parquet`, applies fingerprint filter (quantities appearing
-≤3 times at any price+side level), self-joins on (stock, price, qty, side),
-applies time window filter, keeps earliest flip per initiator match number.
-
 ---
 
 ## Research Context
@@ -180,14 +170,16 @@ Bodek–Shaw (2012), López de Prado.
 - European venue data (Eurex) for ESMA relevance
 - Full FIFO queue position reconstruction
 - Price impact analysis in microseconds following flip
-  
+
 ---
 
 ## Project Contributions & Architecture
+
 This research pipeline was developed collaboratively to investigate the fill-flip mechanism.
-* **Theory & Concept:** David M. (Originator of the fill-flip / hot-potato mechanism hypothesis).
-* **Data Engineering:** Bhavik P. (NASDAQ ITCH 5.0 Go parser logic and binary data handling).
-* **Architecture & Reconstruction:** Pankaj J. (LOB state reconstruction, deep-book feature extraction logic, and Python detection pipeline development).
+
+* **Theory & Concept:** David M. (Originator of the fill-flip / hot-potato mechanism hypothesis)
+* **Raw Data Engineering:** Bhavik P. (NASDAQ ITCH 5.0 Go parser logic and binary data handling)
+* **Architecture & Reconstruction:** Pankaj J. (LOB state reconstruction, deep-book feature extraction logic, and Python detection pipeline development)
 
 ---
 
