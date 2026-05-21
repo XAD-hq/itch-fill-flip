@@ -22,6 +22,15 @@ __pycache__/
 *.exe
 hotpotato
 
+#tests
+
+check.py
+fixed.go
+fixed_test.go
+go.sum
+old main hot_potato_research (1) pi-Copy1.ipynb
+
+
 # OS files
 .DS_Store
 Thumbs.db
