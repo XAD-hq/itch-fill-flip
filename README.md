@@ -184,5 +184,7 @@ This research pipeline was developed collaboratively to investigate the fill-fli
 ---
 
 ## License
+This project is licensed under the **GNU Affero General Public License v3.0 (AGPL-3.0)**. 
 
-MIT — see [LICENSE](LICENSE). Use freely, modify, publish. Citation appreciated.
+See the [LICENSE](LICENSE) file for the full legal text. Any downstream use, modification, or network deployment of this codebase or its data outputs strictly requires full compliance with copyleft terms, proper author attribution, and open-sourcing of any derived works.
+
