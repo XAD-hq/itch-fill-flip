@@ -1,3 +1,8 @@
+## ⚠️ IMPORTANT: LICENSE UPDATE NOTICE
+As of June 2026, this repository and its core data pipeline ecosystem have been permanently transitioned to the **GNU Affero General Public License v3.0 (AGPL-3.0)**. 
+
+Any ongoing use, modification, or network-based deployment of this codebase, its LOB reconstruction engine, or its event-window data outputs legally mandates that your entire software wrapper and research scripts must be made fully open-source under the same AGPL terms. Independent deployment or academic publication without explicit co-authorship and legal compliance is strictly prohibited.
+
 # Hot Potato Effect — NASDAQ ITCH 5.0 Research Pipeline
 
 **SMMG Research** — Pankaj J. · Bhavik P. · David M.
