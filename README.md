@@ -5,7 +5,7 @@ Any ongoing use, modification, or network-based deployment of this codebase, its
 
 # Hot Potato Effect — NASDAQ ITCH 5.0 Research Pipeline
 
-**SMMG Research** — Pankaj J. · Bhavik P. · David M.
+**XAD** — Pankaj J. · Bhavik P. · David M.
 
 ---
 
